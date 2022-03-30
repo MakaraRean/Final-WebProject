@@ -14,9 +14,11 @@
         }	
     </style>
     <script src="https://kit.fontawesome.com/e806390136.js" crossorigin="anonymous"></script>
-<!-- CSS only -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
- integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+    integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    @yield('css')
+
     <title>Dev</title>
 </head>
 <body>
@@ -68,10 +70,8 @@
         </div> <!-- navbar-collapse.// -->
       </nav>
     <div class="container">
-        
-        
-        
         @yield('content')
+        @yield('script')
     </div>
     
    <!-- JavaScript Bundle with Popper -->

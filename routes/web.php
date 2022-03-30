@@ -26,3 +26,6 @@ Route::middleware(['auth','verified'])->group(function () {
     Route::get('2fa',[PostController::class,'twofactor']);
     //Route::get('/login',[PostController::class,'login'])->name('login');
 });
+
+
+Route::get('test',[PostController::class,'test'])->name('test');

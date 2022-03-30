@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use \App\Models\Post;
 use \App\Models\Category;
+use App\Models\User;
 
 class PostController extends Controller
 {
@@ -74,5 +75,10 @@ class PostController extends Controller
 
     public function twofactor(){
         return view('auth.2fa');
+    }
+
+    public function test(Request $request){
+        $users = User::all();
+        return view('fortest',['users' => $users]);
     }
 }
