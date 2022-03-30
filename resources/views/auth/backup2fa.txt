@@ -25,3 +25,5 @@
     </button>
     @endif
    </form>
+
+   DB::table('social_media')->select('facebook_link')->where('user_id', '=', auth()->user()->id)->get()
