@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\PostController;
 use GuzzleHttp\Middleware;
@@ -23,7 +24,9 @@ Route::middleware(['auth','verified'])->group(function () {
     Route::get('/post/edit/{id}', [PostController::class,'edit'])->name('post.edit');
     Route::PUT('/post/update/{post}', [PostController::class,'update'])->name('post.update');
     Route::DELETE('/post/delete/{post}', [PostController::class,'delete'])->name('post.delete');
-    Route::get('2fa',[PostController::class,'twofactor']);
+    Route::get('/2fa',[PostController::class,'twofactor']);
+    Route::get('/profile',[AdminController::class,'profile'])->name('profile');
+    Route::get('/profile/edit',[AdminController::class,'editProfile'])->name('editProfile');
     //Route::get('/login',[PostController::class,'login'])->name('login');
 });
 
