@@ -32,9 +32,9 @@
               <li class="nav-item"><a class="nav-link" href="#"> About </a></li>
               <li class="nav-item"><a class="nav-link" href="#"> Services </a></li>
               <li class="nav-item dropdown">
-                  <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">  Hover me  </a>
+                  <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">  More  </a>
                   <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#"> Submenu item 1</a></li>
+                    <li><a class="dropdown-item" href="#"><i class="fa-solid fa-user-shield"></i> TwoFactor Authentication </a></li>
                     <li><a class="dropdown-item" href="#"> Submenu item 2 </a></li>
                     <li><a class="dropdown-item" href="#"> Submenu item 3 </a></li>
                   </ul>
@@ -49,17 +49,18 @@
                      Wellcome, {{ auth()->user()->name }} 
                     </a>
                   <ul class="dropdown-menu dropdown-menu-right">
-                    <li><a class="dropdown-item" href="#"> Submenu item 1</a></li>
                     <li>
-                        
+                        <a class="dropdown-item" href="#"> 
+                            <i class="fa-solid fa-id-card"></i> Profile
+                        </a>
+                    </li>
+                    <li>  
                         <form method="POST" action="{{ route('logout') }}" id="logout_form">
                             @csrf
-                            
                             <a class="dropdown-item" href="#" onclick="logout()">
                                 <i class="fa-solid fa-right-from-bracket"></i> Logout
                             </a>
                         </form>
-                        
                     </li>
                   </ul>
               </li>
