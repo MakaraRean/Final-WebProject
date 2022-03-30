@@ -1,27 +1,39 @@
-<form method="post" action="{{ url('/user/two-factor-authentication') }}">
-    @csrf
-    @if (auth()->user()->two_factor_secret)
-    @method('DELETE')
-    <div class="pb-3">
-    {!! auth()->user()->twoFactorQrCodeSvg() !!}                                
-    </div>
-    @if (session('status') == "two-factor-authentication-disabled")
-       <div class="alert alert-danger" role="alert">
-       Two factor authentication has been disabled
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Confirm Two-Factor</title>
+</head>
+
+    <link rel="stylesheet" href="\style\twofactor.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
+
+<body>
+    <div class="container">
+        <br>
+        <div class="row">
+            <div class="col-lg-5 col-md-7 mx-auto my-auto">
+                <div class="card">
+                    <div class="card-body px-lg-5 py-lg-5 text-center">
+                        <img src="https://bootdey.com/img/Content/avatar/avatar7.png" class="rounded-circle avatar-lg img-thumbnail mb-4" alt="profile-image">
+                        <h2 class="text-info">2FA Security</h2>
+                        <p class="mb-4">Enter 6-digits code from your authenticator app.</p>
+                        <form action="" method="POST">
+                            <div class="row mb-4">
+                                <div class="ps-0 ps-md-2">
+                                    <input type="text" class="form-control text-lg text-center" placeholder="Security Code" aria-label="2fa">
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn bg-info btn-lg my-4">Continue</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-        @endif
-    <button class="btn btn-danger">
-    Disable
-    </button>
-    @else
-    @if (session('status') == "two-factor-authentication-enabled")
-    <div class="alert alert-success" role="alert">
-    Two factor authentication has been enabled
     </div>
-    @endif
-    <button class="btn btn-success">
-    Enable
-    </button>
-    @endif
-   </form>
-   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>   

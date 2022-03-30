@@ -22,19 +22,19 @@
 <body>
     {{-- header top --}}
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="#">Brand</a>
+        <a class="navbar-brand" href="/home">Brand</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="main_nav">
           <ul class="navbar-nav">
-              <li class="nav-item active"> <a class="nav-link" href="#">Home </a> </li>
+              <li class="nav-item active"> <a class="nav-link" href="/home">Home </a> </li>
               <li class="nav-item"><a class="nav-link" href="#"> About </a></li>
               <li class="nav-item"><a class="nav-link" href="#"> Services </a></li>
               <li class="nav-item dropdown">
                   <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">  More  </a>
                   <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#"><i class="fa-solid fa-user-shield"></i> TwoFactor Authentication </a></li>
+                    <li><a class="dropdown-item" href="/2fa"><i class="fa-solid fa-user-shield"></i> TwoFactor Authentication </a></li>
                     <li><a class="dropdown-item" href="#"> Submenu item 2 </a></li>
                     <li><a class="dropdown-item" href="#"> Submenu item 3 </a></li>
                   </ul>

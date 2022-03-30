@@ -71,4 +71,8 @@ class PostController extends Controller
     //  public function twofactor(){
     //      return view('auth.two-factor-challenge');
     //  }
+
+    public function twofactor(){
+        return view('auth.2fa');
+    }
 }
