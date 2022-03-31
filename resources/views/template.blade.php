@@ -23,7 +23,7 @@
 </head>
 <body>
     {{-- header top --}}
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="width: 100%;position:fixed;z-index:2;margin-top:-20px">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="width: 100%;position:fixed;z-index:2;">
         <a class="navbar-brand" href="/home">Brand</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -52,7 +52,7 @@
                     </a>
                   <ul class="dropdown-menu dropdown-menu-right">
                     <li>
-                        <a class="dropdown-item" href="{{ route('profile') }}"> 
+                        <a class="dropdown-item" href="{{ route('profile',auth()->user()->id) }}"> 
                             <i class="fa-solid fa-id-card"></i> Profile
                         </a>
                     </li>

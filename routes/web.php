@@ -25,8 +25,9 @@ Route::middleware(['auth','verified'])->group(function () {
     Route::PUT('/post/update/{post}', [PostController::class,'update'])->name('post.update');
     Route::DELETE('/post/delete/{post}', [PostController::class,'delete'])->name('post.delete');
     Route::get('/2fa',[PostController::class,'twofactor']);
-    Route::get('/profile',[AdminController::class,'profile'])->name('profile');
-    Route::get('/profile/edit',[AdminController::class,'editProfile'])->name('editProfile');
+    Route::get('/profile/{id}',[AdminController::class,'profile'])->name('profile');
+    Route::get('/profile/edit/{id}',[AdminController::class,'editProfile'])->name('editProfile');
+    Route::post('/profile/update/{user}',[AdminController::class,'saveChange'])->name('saveChange');
     //Route::get('/login',[PostController::class,'login'])->name('login');
 });
 
