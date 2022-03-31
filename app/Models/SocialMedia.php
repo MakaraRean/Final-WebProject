@@ -14,12 +14,12 @@ class SocialMedia extends Model
         'faecbook_link',
         'instagram',
         'instagram_link',
-        'website',
         'website_link',
         'github',
         'github_link',
         'twitter',
-        'twitter_link'
+        'twitter_link',
+        'user_id'
     ];
 
     public function social() {
