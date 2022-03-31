@@ -27,7 +27,6 @@
 @endsection
 
 @section('content')
-<br><br>
     <div class="container" style="z-index:1;">
         <form action="{{ route('saveChange',auth()->user()->id) }}" method="post">
             @csrf

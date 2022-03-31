@@ -1,5 +1,6 @@
 @extends('template')
  @section('content')
+ <br><br><br>
     <h2>All Post :</h2>
    <div class="row">
       @if ($message = Session::get('success'))
