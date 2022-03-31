@@ -22,6 +22,14 @@
         <p style="color:red">{{ $message }}</p>
         @enderror
         <div class="wrap-input100 validate-input">
+            <input class="input100" type="text" name="phone" id="phone" value="{{ old('phone') }}">
+            <span class="focus-input100"></span>
+            <span class="label-input100">Phone</span>
+            </div>
+        @error('email')
+        <p style="color:red">{{ $message }}</p>
+        @enderror
+        <div class="wrap-input100 validate-input">
         <input class="input100" type="password" name="password">
         <span class="focus-input100"></span>
         <span class="label-input100">Password</span>

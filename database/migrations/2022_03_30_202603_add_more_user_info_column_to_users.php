@@ -14,7 +14,7 @@ class AddMoreUserInfoColumnToUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->integer('phone')->nullable(false);
+            $table->string('phone',20)->nullable(false);
             $table->string('address',255)->nullable(true);
         });
     }

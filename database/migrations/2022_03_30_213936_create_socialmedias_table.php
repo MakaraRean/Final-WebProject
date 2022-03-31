@@ -13,11 +13,10 @@ class CreateSocialMediasTable extends Migration
      */
     public function up()
     {
-        Schema::create('social_medias', function (Blueprint $table) {
+        Schema::create('socialmedias', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id')->nullable(false);
             $table->foreign('user_id')->references('id')->on('users');
-            $table->string('website',50)->nullable(true);
             $table->string('website_link',50)->nullable(true);
             $table->string('facebook',50)->nullable(true);
             $table->string('facebook_link',50)->nullable(true);
@@ -38,6 +37,6 @@ class CreateSocialMediasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('social_medias');
+        Schema::dropIfExists('socialmedias');
     }
 }
