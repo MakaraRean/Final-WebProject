@@ -46,7 +46,7 @@
               <li class="nav-item"><a class="nav-link" href="#"> Menu item </a></li>
               <li class="nav-item"><a class="nav-link" href="#"> Menu item </a></li>
               <li class="nav-item dropdown">
-                  <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">
+                  <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown" id="wellcome">
                     <i class="fa-solid fa-user"></i>
                      Wellcome, {{ auth()->user()->name }} 
                     </a>
@@ -79,6 +79,21 @@
        function logout(){
         document.getElementById("logout_form").submit();
        }
+
+       // Get the container element
+        var btnContainer = document.getElementById("main_nav");
+
+        // Get all buttons with class="btn" inside the container
+        var btns = btnContainer.getElementsByClassName("nav-item");
+
+        // Loop through the buttons and add the active class to the current/clicked button
+        for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function() {
+            var current = document.getElementsByClassName("active");
+            current[0].className = current[0].className.replace(" active", "");
+            this.className += " active";
+        });
+        }
    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" 
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> 

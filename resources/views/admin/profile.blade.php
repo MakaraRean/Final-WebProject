@@ -171,5 +171,8 @@
 @endsection
 
 @section('script')
+    <script>
+        document.getElementById("wellcome").style.color = "white";
+    </script>
     
 @endsection
