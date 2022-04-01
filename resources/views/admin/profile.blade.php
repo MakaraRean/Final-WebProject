@@ -106,7 +106,7 @@
                   <hr>
                   <div class="row">
                     <div class="col-sm-12">
-                      <a class="btn btn-info " href="{{ route('editProfile',auth()->user()->id) }}">Edit</a>
+                      <a class="btn btn-info " href="{{ route('editProfile',auth()->user()->id) }}">Edit Profile Setting</a>
                     </div>
                   </div>
                 </div>

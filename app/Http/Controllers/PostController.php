@@ -81,6 +81,6 @@ class PostController extends Controller
     public function test(Request $request){
         $users = User::all();
         $social = SocialMedia::all();
-        return view('fortest',['users' => $users,'social' => $social]);
+        return view('test',['users' => $users,'social' => $social]);
     }
 }
