@@ -24,6 +24,17 @@ class User extends Authenticatable implements MustVerifyEmail
         'address',
         'title',
         'password',
+        'profile_picture_path',
+
+        'website_link',
+        'facebook',
+        'facebook_link',
+        'instagram',
+        'instagram_link',
+        'github',
+        'github_link',
+        'twitter',
+        'twitter_link',
     ];
 
     /**
@@ -44,6 +55,10 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function socialMedia() {
+        return $this->belongsTo(SocialMedia::class,'user_id','id');
+    }
 
     
 }

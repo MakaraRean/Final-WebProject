@@ -29,17 +29,17 @@ class DatabaseSeeder extends Seeder
             'desc' => 'Sport',
         ]);
 
-        SocialMedia::create([
-            'user_id' => '1',
-            'website_link' => 'www.reanmakara.com',
-            'facebook' => 'Rean Makara',
-            'facebook_link' => 'https://www.facebook.com/hawaii.acoustic/',
-            'github' => 'Rean Makara',
-            'github_link' => 'https://github.com/MakaraRean',
-            'twitter' => 'Rean Makara',
-            'twitter_link' => 'https://twitter.com/ReanMakara7',
-            'instagram' => 'Rean Makara',
-            'instagram_link' => 'https://www.instagram.com/r.makara22/',
-        ]);
+        // SocialMedia::create([
+        //     'user_id' => '1',
+        //     'website_link' => 'www.reanmakara.com',
+        //     'facebook' => 'Rean Makara',
+        //     'facebook_link' => 'https://www.facebook.com/hawaii.acoustic/',
+        //     'github' => 'Rean Makara',
+        //     'github_link' => 'https://github.com/MakaraRean',
+        //     'twitter' => 'Rean Makara',
+        //     'twitter_link' => 'https://twitter.com/ReanMakara7',
+        //     'instagram' => 'Rean Makara',
+        //     'instagram_link' => 'https://www.instagram.com/r.makara22/',
+        // ]);
     }
 }

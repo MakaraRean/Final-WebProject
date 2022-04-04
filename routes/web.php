@@ -28,6 +28,8 @@ Route::middleware(['auth','verified'])->group(function () {
     Route::get('/profile/{id}',[AdminController::class,'profile'])->name('profile');
     Route::get('/profile/edit/{id}',[AdminController::class,'editProfile'])->name('editProfile');
     Route::post('/profile/update/{user}',[AdminController::class,'saveChange'])->name('saveChange');
+    Route::post('/profile/changepf/{user}',[AdminController::class,'changePf'])->name('changePf');
+    Route::get('/user',[AdminController::class,'user'])->name('user');
     //Route::get('/login',[PostController::class,'login'])->name('login');
 });
 

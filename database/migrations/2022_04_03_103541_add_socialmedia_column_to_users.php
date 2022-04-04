@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSocialMediasTable extends Migration
+class AddSocialmediaColumnToUsers extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class CreateSocialMediasTable extends Migration
      */
     public function up()
     {
-        Schema::create('socialmedias', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('user_id')->nullable(false);
-            $table->foreign('user_id')->references('id')->on('users');
+        Schema::table('users', function (Blueprint $table) {
+
             $table->string('website_link',50)->nullable(true);
             $table->string('facebook',50)->nullable(true);
             $table->string('facebook_link',50)->nullable(true);
@@ -26,7 +24,7 @@ class CreateSocialMediasTable extends Migration
             $table->string('twitter_link',50)->nullable(true);
             $table->string('instagram',50)->nullable(true);
             $table->string('instagram_link',50)->nullable(true);
-            $table->timestamps();
+
         });
     }
 
@@ -37,6 +35,8 @@ class CreateSocialMediasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('socialmedias');
+        Schema::table('users', function (Blueprint $table) {
+            
+        });
     }
 }

@@ -21,7 +21,7 @@
 
     <title>Dev</title>
 </head>
-<body>
+<body style="margin-top: 0%">
     {{-- header top --}}
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="width: 100%;position:fixed;z-index:2;">
         <a class="navbar-brand" href="/home">Brand</a>
@@ -31,7 +31,7 @@
         <div class="collapse navbar-collapse" id="main_nav">
           <ul class="navbar-nav">
               <li class="nav-item active"> <a class="nav-link" href="/home">Home </a> </li>
-              <li class="nav-item"><a class="nav-link" href="#"> About </a></li>
+              <li class="nav-item"><a class="nav-link" href="{{ route('user') }}"> Users </a></li>
               <li class="nav-item"><a class="nav-link" href="#"> Services </a></li>
               <li class="nav-item dropdown">
                   <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">  More  </a>
@@ -47,7 +47,8 @@
               <li class="nav-item"><a class="nav-link" href="#"> Menu item </a></li>
               <li class="nav-item dropdown">
                   <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown" id="wellcome">
-                    <i class="fa-solid fa-user"></i>
+                    <img src="/images/profile_picture/{{ auth()->user()->profile_picture_path }}" alt="{{ auth()->user()->name }}" 
+                    class="rounded-circle profile" width="30" height="30" style="object-fit: cover">
                      Wellcome, {{ auth()->user()->name }} 
                     </a>
                   <ul class="dropdown-menu dropdown-menu-right">
