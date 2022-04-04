@@ -17,16 +17,22 @@
                 <!-- end col -->
             </div>
             <!-- end row -->
+            <br><br>
             <div class="row">
                 @foreach ($users as $user)
                     <div class="col-lg-4">
                         <div class="text-center card-box">
                             <div class="member-card pt-2 pb-2">
-                                <div class="thumb-lg member-thumb mx-auto"><img
-                                        src="https://bootdey.com/img/Content/avatar/avatar2.png"
-                                        class="rounded-circle img-thumbnail" alt="profile-image"></div>
+                                <div class="thumb-lg member-thumb mx-auto mb-3">
+                                    <img src="/images/profile_picture/{{ $user->profile_picture_path }}"
+                                        class="rounded-circle" alt="profile-image" width="100" height="100" style="object-fit: cover !important">
+                                </div>
                                 <div class="">
-                                    <h4>{{ $user->name }}</h4>
+                                    @if ($user->id == auth()->user()->id)
+                                        <h4>{{ $user->name }} (You)</h4>
+                                    @else
+                                        <h4>{{ $user->name }}</h4>
+                                    @endif
                                     <p class="text-muted">{{ $user->title }} <span>| </span><span><a href="#"
                                                 class="text-pink">{{ $user->website_link }}</a></span></p>
                                 </div>
