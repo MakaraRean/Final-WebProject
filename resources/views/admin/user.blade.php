@@ -47,27 +47,31 @@
                                             class="tooltips" href="" data-original-title="Skype"><i
                                                 class="fa fa-skype"></i></a></li>
                                 </ul>
-                                <button type="button"
-                                    class="btn btn-primary mt-3 btn-rounded waves-effect w-md waves-light">Message
-                                    Now</button>
+                                <a href="{{ route('profile',$user->id) }}"><button type="button"
+                                    class="btn btn-primary mt-3 btn-rounded waves-effect w-md waves-light">View Profile</button></a>
+                                @php
+                                    $countPost = DB::table('posts')->where('user_id','=',$user->id)->get();
+                                    $countFollower = DB::table('followers')->where('follow_to','=',$user->id)->get();
+                                    $countFollowing = DB::table('followers')->where('user_id','=',$user->id)->get();
+                                @endphp
                                 <div class="mt-4">
                                     <div class="row">
                                         <div class="col-4">
                                             <div class="mt-3">
-                                                <h4>2563</h4>
-                                                <p class="mb-0 text-muted">Wallets Balance</p>
+                                                <h4>{{ count($countFollowing) }}</h4>
+                                                <p class="mb-0 text-muted">Following</p>
                                             </div>
                                         </div>
                                         <div class="col-4">
                                             <div class="mt-3">
-                                                <h4>6952</h4>
-                                                <p class="mb-0 text-muted">Income amounts</p>
+                                                <h4>{{ count($countFollower) }}</h4>
+                                                <p class="mb-0 text-muted">Followers</p>
                                             </div>
                                         </div>
                                         <div class="col-4">
                                             <div class="mt-3">
-                                                <h4>1125</h4>
-                                                <p class="mb-0 text-muted">Total Transactions</p>
+                                                <h4>{{ count($countPost) }}</h4>
+                                                <p class="mb-0 text-muted">Total Posts</p>
                                             </div>
                                         </div>
                                     </div>

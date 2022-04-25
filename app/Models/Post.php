@@ -13,7 +13,8 @@ class Post extends Model
         'title',
         'body',
         'category_id',
-        'cover_path'
+        'cover_path',
+        'user_id'
     ];
 
     public function showDate(){
@@ -22,6 +23,11 @@ class Post extends Model
 
     public function category() {
         return $this->belongsTo(Category::class,'category_id','id');
-
     }
+    
+    public function author(){
+        return $this->belongsTo(User::class,'user_id','id');
+    }
+
+    
 }

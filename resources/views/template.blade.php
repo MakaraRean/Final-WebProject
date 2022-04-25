@@ -17,6 +17,7 @@
     <!-- CSS only -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
     integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     @yield('css')
 
     <title>Dev</title>
@@ -24,34 +25,41 @@
 <body style="margin-top: 0%">
     {{-- header top --}}
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="width: 100%;position:fixed;z-index:2;">
-        <a class="navbar-brand" href="/home">Brand</a>
+        <a class="navbar-brand" href="/home">SR6.9</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="main_nav">
           <ul class="navbar-nav">
               <li class="nav-item active"> <a class="nav-link" href="/home">Home </a> </li>
-              <li class="nav-item"><a class="nav-link" href="{{ route('user') }}"> Users </a></li>
-              <li class="nav-item"><a class="nav-link" href="#"> Services </a></li>
+              @if (auth()->check())
+                @if (auth()->user()->is_admin)
+                    <li class="nav-item"><a class="nav-link" href="{{ route('user') }}"> Users </a></li>
+                @endif
+              @endif
               <li class="nav-item dropdown">
                   <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">  More  </a>
                   <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="/2fa"><i class="fa-solid fa-user-shield"></i> TwoFactor Authentication </a></li>
-                    <li><a class="dropdown-item" href="#"> Submenu item 2 </a></li>
-                    <li><a class="dropdown-item" href="#"> Submenu item 3 </a></li>
                   </ul>
               </li>
           </ul>
           <ul class="navbar-nav ml-auto">
-              <li class="nav-item"><a class="nav-link" href="#"> Menu item </a></li>
-              <li class="nav-item"><a class="nav-link" href="#"> Menu item </a></li>
-              <li class="nav-item dropdown">
-                  <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown" id="wellcome">
+              
+            <form class="search users">
+                <input placeholder="Search from Here" type="text">
+                
+                <button class="btn" type="submit"><i class="fa fa-search"></i></button>
+            </form>
+              <li class="nav-item"><a class="nav-link" href="{{ route('post.add') }}"><i class="fa-solid fa-upload"></i> Upload </a></li>
+              @if (auth()->user())
+                <li class="nav-item dropdown">
+                    <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown" id="wellcome">
                     <img src="/images/profile_picture/{{ auth()->user()->profile_picture_path }}" alt="{{ auth()->user()->name }}" 
                     class="rounded-circle profile" width="30" height="30" style="object-fit: cover">
-                     Wellcome, {{ auth()->user()->name }} 
+                    Wellcome, {{ auth()->user()->name }} 
                     </a>
-                  <ul class="dropdown-menu dropdown-menu-right">
+                    <ul class="dropdown-menu dropdown-menu-right">
                     <li>
                         <a class="dropdown-item" href="{{ route('profile',auth()->user()->id) }}"> 
                             <i class="fa-solid fa-id-card"></i> Profile
@@ -65,8 +73,11 @@
                             </a>
                         </form>
                     </li>
-                  </ul>
-              </li>
+                    </ul>
+                </li>
+              @else
+                <li class="nav-item"><a class="nav-link" href="{{ route('login') }}"> Sign In or Sign up </a></li>
+              @endif
           </ul>
         </div> <!-- navbar-collapse.// -->
       </nav>

@@ -2,14 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Follower;
+use App\Models\Post;
 use App\Models\SocialMedia;
 use App\Models\User;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    public function profile(User $users){
-        return view('admin.profile',['user' => $users]);
+    public function profile(User $id){
+        $followers = Follower::all();
+        $posts = Post::all();
+        return view('admin.profile',['user' => $id,'followers' => $followers,'posts' => $posts]);
     }
 
     public function editProfile(User $id){
@@ -59,5 +63,25 @@ class AdminController extends Controller
     public function user(){
         $users = User::all();
         return view('admin.user',['users' => $users]);
+    }
+
+    public function follow(){
+        $follow = Follower::create([
+            'user_id' => request()->user_id,
+            'follow_to' => request()->follow_to
+        ]);
+        if($follow){
+            return redirect()->route('profile',request()->follow_to);
+        }
+    }
+
+    public function follower(User $id){
+        $followers = Follower::all();
+        return view('admin.follower',['user' => $id]);
+    }
+
+    public function following(User $id){
+        $followers = Follower::all();
+        return view('admin.following',['user' => $id]);
     }
 }

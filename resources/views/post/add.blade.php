@@ -5,6 +5,7 @@
       <div class="col-md-12">
       <form method="POST" action="{{ route ('post.save') }}" enctype="multipart/form-data"> 
           @csrf
+          <br>
             <div class="form-group">
                 <label for="title">Title </label>
                 <input type="text" class="form-control" name="title" id="title" value="{{ old('title') }}">
@@ -40,6 +41,7 @@
                     <small class="form-text text-danger">{{ $message }}</small>
                 @enderror
             </div>
+            <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
             <div class="form-group" style="padding-top: 10px">
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>

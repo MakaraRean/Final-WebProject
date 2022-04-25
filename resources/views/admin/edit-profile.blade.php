@@ -464,10 +464,12 @@
                                 <label for="username">Username</label>
                                 <input type="text" class="form-control" id="username"
                                     aria-describedby="usernameHelp" placeholder="Enter your username"
-                                    value="kennethvaldez">
+                                    value="{{auth()->user()->id}}">
                                 <small id="usernameHelp" class="form-text text-muted">After changing your username,
                                     your old username becomes available for anyone else to claim.</small>
+                                    
                             </div>
+                            <button type="submit" class="btn btn-primary">Save</button>
                             <hr>
                             <div class="form-group">
                                 <label class="d-block text-danger">Delete Account</label>
